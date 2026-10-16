@@ -1,0 +1,7 @@
+from fastapi import from fastapi import from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get('/')
+def test():
+    return {"message": "this is test program"}

@@ -32,7 +32,7 @@
         },
         {
             "name": "Green",
-            "hex": "#00FF00",
+            "hex": "#008000",
             "rgb": {
                 "r": 0,
                 "g": 255,
@@ -349,6 +349,16 @@
                 "b": 144
             },
             "category": "neutral"
+        },
+        {
+            "name": "Midnight Blue",
+            "hex": "#191970",
+            "rgb": {
+                "r": 25,
+                "g": 25,
+                "b": 112
+            },
+            "category": "dark"
         }
     ]
 }

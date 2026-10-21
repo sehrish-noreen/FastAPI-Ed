@@ -82,3 +82,14 @@ def remove_color(color_name:str):
         return {"message": "record deleted!"}
     else:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="record not found, could not delete")
+
+# update a record
+@app.put("/update_color", status_code=status.HTTP_200_OK)
+def update_color(color_name: str, updated_color: Color):
+    data = load_data()
+    for index, color in enumerate(data["colors"]):
+        if color["name"].lower() == color_name.lower():
+            data["colors"][index] = updated_color.model_dump()
+            save_data(data)
+            return {"message": "record updated"}
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="record not found, could not update")

@@ -13,6 +13,29 @@ Educational FastAPI project demonstrating CRUD operations, Pydantic validation, 
 * **PUT** `/update_color?color_name=...` - Update color info by color_name
 * **DELETE** `/remove_color?color_name=...` - Delete color by name
 
+* Payload:
+    ```json
+    {
+      "name": "red",
+      "hex": "#FF0000",
+      "rgb": {"r": 255, "g": 0, "b": 0},
+      "category": "primary"
+    }
+    ```
+* **PUT** `/update_color?color_name=...` - Update color by name
+  * Parameter: `/update_color?color_name=red`
+  * Payload:
+    ```json
+    {
+      "name": "crimson",
+      "hex": "#DC143C",
+      "rgb": {"r": 220, "g": 20, "b": 60},
+      "category": "primary"
+    }
+    ```
+* **DELETE** `/remove_color?color_name=...` - Delete color by name
+  * Parameter: `/remove_color?color_name=red`
+
 ## Setup & Run
 
 1. Install dependencies:

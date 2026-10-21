@@ -40,7 +40,7 @@ Educational FastAPI project: CRUD operations, Pydantic validation, and JSON file
 
 1. Install dependencies:
    ```bash
-   pip install fastapi uvicorn pydantic
+   pip install fastapi uvicorn pydantic uv
    ```
 
 2. Create `colors.json` in the project root (add some initial data optional):

@@ -3,6 +3,7 @@
 Educational FastAPI project demonstrating CRUD operations, Pydantic validation, and JSON file storage.
 
 ## Endpoints
+<img width="1127" height="625" alt="image" src="https://github.com/user-attachments/assets/8b3b57db-68de-4154-8bb9-9edfa8a048b7" />
 
 * **GET** `/` - Welcome message
 * **GET** `/colors` - List all colors

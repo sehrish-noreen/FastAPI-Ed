@@ -65,5 +65,20 @@ def add_color(color: Color):
         save_data(data)
     else:
         return {"message": "color already exists"}
-
     return {"message": "color added successfully", "color":new_color_dict}
+
+# delete a record
+@app.delete("/remove_color", status_code=status.HTTP_200_OK)
+def remove_color(color_name:str):
+    data = load_data()
+    index_to_pop = None
+    for index, color in enumerate(data["colors"]):
+        if color["name"].lower() == color_name.lower():
+            index_to_pop = index
+            break
+    if index_to_pop is not None:
+        data["colors"].pop(index_to_pop)
+        save_data(data)
+        return {"message": "record deleted!"}
+    else:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="record not found, could not delete")

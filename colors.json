@@ -349,16 +349,6 @@
                 "b": 144
             },
             "category": "neutral"
-        },
-        {
-            "name": "Emerald Green",
-            "hex": "#50C878",
-            "rgb": {
-                "r": 80,
-                "g": 200,
-                "b": 120
-            },
-            "category": "Green"
         }
     ]
 }

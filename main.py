@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, status, Query
 import json
 from pydantic import BaseModel
 
@@ -45,11 +45,25 @@ def show_onecolor(color_name: str):
             return color
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="color not found")
 
+# query parameters
+@app.get("/sort_colors")
+def sort_colors(sort_by:str |None  = Query(..., description="sort colors with given query", max_length=50)):
+    data = load_data()
+    fields = ["name", "hex", "category"]
+    if sort_by not in fields:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="sort_by not found")
+    sorted_data = sorted(data["colors"], key=lambda x:str(x.get(sort_by, 0)).lower(), reverse=False)
+    return sorted_data
+
 # client data, create a new record
-@app.post("/color", status_code=status.HTTP_201_CREATED)
+@app.post("/add_color", status_code=status.HTTP_201_CREATED)
 def add_color(color: Color):
     data = load_data()
     new_color_dict = color.model_dump()
-    data["colors"].append(new_color_dict)
-    save_data(data)
+    if new_color_dict not in data["colors"]:
+        data["colors"].append(new_color_dict)
+        save_data(data)
+    else:
+        return {"message": "color already exists"}
+
     return {"message": "color added successfully", "color":new_color_dict}

@@ -1,6 +1,6 @@
 # ColorsInfo API
 
-Educational FastAPI project demonstrating CRUD operations, Pydantic validation, and JSON file storage.
+Educational FastAPI project: CRUD operations, Pydantic validation, and JSON file storage.
 
 ## Endpoints
 
